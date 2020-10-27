@@ -4,7 +4,9 @@ const app = express();
 
 app.get('/', (request, response) => {
   // return response.send('Hello World');
-  return response.json({ message: 'Hello World' });
+  return response.json({ message: 'Hello GoStack' });
 });
 
-app.listen(3333);
+app.listen(3333, () => {
+  console.log('🛸 Back-end Started');
+});
