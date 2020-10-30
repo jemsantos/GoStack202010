@@ -14,9 +14,17 @@ function App() {
     });
   }, []);
 
-  function handleAddProject() {
+  async function handleAddProject() {
     //projects.push(`Novo projeto ${Date.now()}`);
-    setProjects([...projects, `Novo projeto ${Date.now()}`]);
+    //setProjects([...projects, `Novo projeto ${Date.now()}`]);
+    const response = await api.post('projects', {
+      title: `Novo projeto ${Date.now()}`,
+      owner: "Diego  Fernandes"
+    });
+
+    const project = response.data;
+
+    setProjects([...projects, project]);
 
     console.log(projects);
   }
@@ -33,6 +41,5 @@ function App() {
     </>
   );
 }
-
 
 export default App;
