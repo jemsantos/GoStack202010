@@ -7,7 +7,9 @@
     "build": "tsc",
     "dev:server": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/server.ts",
     "lint": "eslint --ext .ts --fix ./src",
-    "dev:lint": "yarn lint && ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/server.ts"
+    "dev:lint": "yarn lint && ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/server.ts",
+    "start": "ts-node src/index.ts",
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
   },
   "dependencies": {
     "date-fns": "^2.16.1",
