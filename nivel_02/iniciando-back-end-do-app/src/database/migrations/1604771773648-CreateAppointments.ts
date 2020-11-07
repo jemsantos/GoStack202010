@@ -12,6 +12,7 @@ export default class CreateAppointments1604771773648
             type: 'varchar',
             isPrimary: true,
             generationStrategy: 'uuid',
+            /* default: 'uuid_generate_v4()',  ==> ISTO E PARA O POSTGREE */
           },
           {
             name: 'provider',
