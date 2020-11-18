@@ -1,0 +1,1 @@
+- após a limpeza das pastas/arquivos, execute no terminal: yarn start
