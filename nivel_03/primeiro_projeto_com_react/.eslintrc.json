@@ -11,9 +11,9 @@
         "plugin:prettier/recommended"
     ],
     "globals": {
-        "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
-    },
+      "Atomics": "readonly",
+      "SharedArrayBuffer": "readonly"
+  },
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaFeatures": {
@@ -33,6 +33,10 @@
       "react-hooks/exhaustive-deps": "warn",
       "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
       "import/prefer-default-export": "off",
+      "camelcase": "off",
+      "@typescript-eslint/ban-types": "off",
+      "no-use-before-define": "off",
+      "prettier/prettier": "error",
       "import/extensions": [
         "error",
         "ignorePackages",
@@ -40,8 +44,7 @@
           "ts": "never",
           "tsx": "never"
         }
-     ],
-     "prettier/prettier": "error"
+     ]
     },
     "settings": {
       "import/resolver": {
