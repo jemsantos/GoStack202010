@@ -6,7 +6,6 @@ import api from '../../services/api';
 import logoImg from '../../assets/logo.svg';
 
 import { Title, Form, Repositories, Error } from './styles';
-import Repository from '../Repository';
 
 interface Repository {
   full_name: string;
@@ -21,7 +20,9 @@ const Dashboard: React.FC = () => {
   const [newRepo, setNewRepo] = useState('');
   const [inputError, setInputError] = useState('');
   const [repositories, setRepositories] = useState<Repository[]>(() => {
-    const storageRepositories = localStorage.getItem('@GithubExplorer:repositories');
+    const storageRepositories = localStorage.getItem(
+      '@GithubExplorer:repositories'
+    );
 
     if (storageRepositories) {
       return JSON.parse(storageRepositories);
