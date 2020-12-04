@@ -1,4 +1,4 @@
-import { MigrationInterface, QueryRunner, TableColumn } from '../../modules/appointments/repositories/node_modules/typeorm';
+import { MigrationInterface, QueryRunner, TableColumn } from 'typeorm';
 
 export default class AddAvatarFieldToUsers1604964295756
   implements MigrationInterface {

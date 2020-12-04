@@ -1,6 +1,6 @@
-import { Router } from '../shared/middlewares/node_modules/express';
+import { Router } from 'express';
 
-import AuthenticateUserService from '../../modules/users/services/AuthenticateUserService';
+import AuthenticateUserService from '@modules/users/services/AuthenticateUserService';
 
 const sessionsRouter = Router();
 

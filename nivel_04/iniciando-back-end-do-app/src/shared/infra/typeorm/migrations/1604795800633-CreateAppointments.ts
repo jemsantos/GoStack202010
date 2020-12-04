@@ -1,10 +1,16 @@
-import { MigrationInterface, QueryRunner, Table } from '../../modules/appointments/repositories/node_modules/typeorm';
+import {
+  MigrationInterface,
+  QueryRunner,
+  Table,
+  TableForeignKey,
+} from 'typeorm';
 
-export default class CreateUsers1604788320310 implements MigrationInterface {
+export default class CreateAppointments1604795800633
+  implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'users',
+        name: 'appointments',
         columns: [
           {
             name: 'id',
@@ -14,17 +20,14 @@ export default class CreateUsers1604788320310 implements MigrationInterface {
             /* default: 'uuid_generate_v4()',  ==> ISTO E PARA O POSTGREE */
           },
           {
-            name: 'name',
+            name: 'provider_id',
             type: 'varchar',
+            isNullable: true,
           },
           {
-            name: 'email',
-            type: 'varchar',
-            isUnique: true,
-          },
-          {
-            name: 'password',
-            type: 'varchar',
+            name: 'date',
+            type: 'timestamp',
+            isNullable: false,
           },
           {
             name: 'created_at',
@@ -39,9 +42,21 @@ export default class CreateUsers1604788320310 implements MigrationInterface {
         ],
       }),
     );
+
+    await queryRunner.createForeignKey(
+      'appointments',
+      new TableForeignKey({
+        name: 'AppointmentProvider',
+        columnNames: ['provider_id'],
+        referencedColumnNames: ['id'],
+        referencedTableName: 'users',
+        onDelete: 'SET NULL',
+        onUpdate: 'CASCADE',
+      }),
+    );
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('users');
+    await queryRunner.dropTable('appointments');
   }
 }

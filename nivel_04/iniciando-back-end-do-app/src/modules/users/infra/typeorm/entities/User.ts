@@ -4,7 +4,7 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
-} from '../modules/appointments/repositories/node_modules/typeorm';
+} from 'typeorm';
 
 @Entity('users')
 class User {
