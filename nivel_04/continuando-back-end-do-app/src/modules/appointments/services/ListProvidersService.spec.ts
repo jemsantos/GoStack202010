@@ -1,5 +1,3 @@
-import AppError from '@shared/errors/AppError';
-
 import FakeUsersRepository from '@modules/users/repositories/fakes/FakeUsersRepository';
 import ListProvidersService from './ListProvidersService';
 
@@ -38,6 +36,4 @@ describe('ListProviders', () => {
 
     expect(providers).toEqual([user1, user2]);
   });
-
-  it('should not be able to create two appointments on the same time', async () => {});
 });
