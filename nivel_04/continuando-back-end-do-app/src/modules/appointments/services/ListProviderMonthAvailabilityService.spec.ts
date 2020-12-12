@@ -83,6 +83,4 @@ describe('ListProviderMonthAvailability', () => {
       ]),
     );
   });
-
-  it('should not be able to ', async () => {});
 });
