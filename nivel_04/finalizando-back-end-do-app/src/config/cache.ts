@@ -4,11 +4,11 @@ interface ICacheConfig {
   driver: 'redis';
 
   config: {
-    redis: RedisOptions
+    redis: RedisOptions;
   };
 }
 
-import default {
+export default {
   driver: 'redis',
 
   config: {
@@ -16,8 +16,8 @@ import default {
       host: 'localhost',
       port: 6379,
       password: undefined,
-    } /*,
+    } /* ,
     elasticache: {
-    }, */
+    }, */,
   },
 } as ICacheConfig;
