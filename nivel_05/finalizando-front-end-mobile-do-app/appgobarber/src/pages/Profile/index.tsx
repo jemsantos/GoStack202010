@@ -31,7 +31,8 @@ interface ProfileFormData {
 }
 
 const Profile: React.FC = () => {
-  const { user } = useAuth();
+  const { user, updateUser } = useAuth();
+
   const formRef = useRef<FormHandles>(null);
   const navigation = useNavigation();
 
