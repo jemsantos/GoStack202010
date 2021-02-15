@@ -1,8 +1,9 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, wait } from '@testing-library/react';
 import SignIn from '../../pages/SignIn';
 
 const mockedHistoryPush = jest.fn();
+const mockedSignIn = jest.fn();
 
 jest.mock('react-router-dom', () => {
   return {
@@ -10,6 +11,14 @@ jest.mock('react-router-dom', () => {
       push: mockedHistoryPush,
     }),
     Link: ({ children }: { children: React.ReactNode }) => children,
+  };
+});
+
+jest.mock('../../hooks/auth', () => {
+  return {
+    useAuth: () => ({
+      signIn: mockedSignIn,
+    }),
   };
 });
 
@@ -26,6 +35,8 @@ describe('SignIn Page', () => {
 
     fireEvent.click(buttonElement);
 
-    expect(mockedHistoryPush).toHaveBeenCalledWith('/dashboard');
+    await wait(() => {
+      expect(mockedHistoryPush).toHaveBeenCalledWith('/dashboard');
+    });
   });
 });
